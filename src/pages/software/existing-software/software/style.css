@@ -1,0 +1,14 @@
+.software-card{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(107, 187, 233);
+    height: 10%;
+    width: 9%;
+    padding: 1%;
+    border-radius: 15px;
+    gap: 2.5%;
+
+    align-items: center;
+}
+
+

@@ -1,13 +1,18 @@
-import ReactDOM from "react-dom";
-import AddSoftware from "./pages/add-software";
+import ReactDOM from 'react-dom'
+import Software from './pages/software'
 
-function Index(){
-  return(
+function Index () {
+  return (
     <>
-      <AddSoftware />
+      <Software />
     </>
-  );
+  )
 }
 
-ReactDOM.render(<Index />, document.getElementById("root"));
+ReactDOM.render(<Index />, document.getElementById('root'))
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+  navigator.serviceWorker.register('../service-worker.js');
+  });
+}
