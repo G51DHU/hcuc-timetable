@@ -12,7 +12,7 @@ function Index () {
 ReactDOM.render(<Index />, document.getElementById('root'))
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-  navigator.serviceWorker.register('../service-worker.js');
-  });
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('../service-worker.js')
+  })
 }
