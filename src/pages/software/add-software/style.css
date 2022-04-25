@@ -6,5 +6,8 @@
     width: 50%;
 
     border-left: solid black 1px;
+    padding-right: 10%;
+    padding-left: 5%;
+    box-sizing: border-box;
 
 }

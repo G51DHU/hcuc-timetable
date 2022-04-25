@@ -1,14 +1,26 @@
 .software-card{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
     background-color: rgb(107, 187, 233);
-    height: 10%;
-    width: 9%;
-    padding: 1%;
+
+    min-width: 20%;
+    max-width: 20%;
+    height: 100%;
+    
     border-radius: 15px;
     gap: 2.5%;
-
-    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
 }
 
+.software-card__name{
+    font-size: 70%;
+    margin: 0px;
+}
 
+.software-card__version{
+    font-size: 50%;
+
+}

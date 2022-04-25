@@ -5,10 +5,43 @@
     height: 100%;
     width: 50%;
     border-right: solid black 1px;
+
+    padding-left: 10%;
+    padding-right: 5%;
+
+    box-sizing: border-box;
 }
 
+.software__search-bar{
+    display: flex;
+    justify-content: center;
+    height: 5%;
+    width: 90%;
+    background-color: #BC48F3;
+    border-radius: 15px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.software__magnifying-glass{
+    padding: 2%;
+    width: 13%;
+    box-sizing: border-box;
+}
+
+.software__input{
+    width: 100%;
+    border-radius: 0 15px 15px 0px;
+    border: 1px;
+}
 
 .software__list{
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
+    padding-top: 7%;
+    row-gap: 70%;
+    column-gap: 1%;
 }
