@@ -29,7 +29,7 @@ export default function AddSoftware () {
         Version
         <input className='add-software__version-input' type='text' placeholder='Software version...' value={SoftwareVersion} onChange={e => SetSoftwareVersion(e.target.value)} />
       </label>
-      <input type='submit' value='Submit' />
+      <input className='add-software__submit' type='submit' value='Submit' />
     </form>
   )
 }
