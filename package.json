@@ -4,7 +4,7 @@
   "description": "This is the frontend for hcuc-timetable.",
   "license": "MIT",
   "scripts": {
-    "start": "vite",
+    "start": "vite --host",
     "build": "vite build",
     "wbuild": "vite build --watch",
     "preview": "vite preview --host --port 3000",
