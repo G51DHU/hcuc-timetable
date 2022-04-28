@@ -3,14 +3,14 @@
     "name": "HCUC Timetable",
     "icons": [
       {
-        "src": "/src/assets/HCUC_logo_512x512.png",
+        "src": "/src/assets/HCUC_Logo_512x512.png",
         "type": "image/png",
         "sizes": "512x512",
         "purpose": "any maskable"
 
       },
       {
-        "src": "/src/assets/HCUC_logo_192x192.png",
+        "src": "/src/assets/HCUC_Logo_192x192.png",
         "type": "image/png",
         "sizes": "192x192"
       }
