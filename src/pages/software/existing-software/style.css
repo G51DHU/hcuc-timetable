@@ -4,11 +4,11 @@
     align-items: center;
     text-align: center;
     height: 100%;
-    width: 50%;
+    width: 100%;
     border-right: solid black 1px;
 
-    padding-left: 10%;
-    padding-right: 5%;
+    padding: 3%;
+
 
     box-sizing: border-box;
 }
@@ -16,8 +16,8 @@
 .software__search-bar{
     display: flex;
     justify-content: center;
-    height: 5%;
-    width: 90%;
+    height: 6vh;
+    width: 50%;
     background-color: #BC48F3;
     border-radius: 15px;
     border: 1px solid black;
@@ -25,8 +25,8 @@
 }
 
 .software__magnifying-glass{
-    padding: 2%;
-    width: 13%;
+    padding: 1%;
+    width: 15%;
     box-sizing: border-box;
 }
 
@@ -36,13 +36,22 @@
     border: 1px;
 }
 
+.software__list-wrapper{
+    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+
+    overflow-y: scroll;
+}
+
 .software__list{
     display: flex;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    height: 25%;
+
     width: 100%;
-    padding-top: 7%;
-    row-gap: 70%;
+    row-gap: 30%;
     column-gap: 1%;
 }

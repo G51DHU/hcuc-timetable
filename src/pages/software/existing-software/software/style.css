@@ -5,8 +5,8 @@
 
     background-color: rgb(107, 187, 233);
 
-    min-width: 20%;
-    max-width: 20%;
+    min-width: 25%;
+    max-width: 25%;
     height: 100%;
     
     border-radius: 15px;
@@ -16,11 +16,11 @@
 }
 
 .software-card__name{
-    font-size: 70%;
+    font-size: 80%;
     margin: 0px;
 }
 
 .software-card__version{
-    font-size: 50%;
+    font-size: 75%;
 
 }

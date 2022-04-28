@@ -10,12 +10,16 @@
     margin-top: 5%;
 }
 
-.software__view-and-add{
+.software__view-and-add-switch{
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    height: 3rem;
+    width: 15rem;
+    gap: 5%;
+}
+
+.software__view-software-button,
+.software__add-software-button{
     height: 100%;
     width: 100%;
-
 }
