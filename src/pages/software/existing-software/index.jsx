@@ -5,8 +5,8 @@ import Software from './software'
 
 export default function ViewSoftware () {
   const [ListOfSoftware, SetListOfSoftware] = useState([])
-  const [SoftwareView, SetSoftwareView] = useState([])
   const [SearchQuery, SetSearchQuery] = useState("")
+  const [ToDelete, SetToDelete] = useState([])
 
   useEffect(() => {
     window.fetch('http://localhost:8000/list_of_software')
@@ -14,17 +14,20 @@ export default function ViewSoftware () {
       .then(data => SetListOfSoftware(data))
   }, [])
 
-  if (SearchQuery !== ""){
-    ListOfSoftware.forEach((software)=>{
-      if (software.name.includes(SearchQuery)){
-        SoftwareView.push(software)
-      }
-    })
-  }
-  else{
-    SoftwareView === ListOfSoftware
-  }
+  useEffect(()=>{
+    console.log(ToDelete)
+  }, [ToDelete])
 
+  function DeleteSelectedSoftware(ToDelete) {
+    window.fetch('http://localhost:8000/delete_software',{
+      method:"DELETE",
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+      },
+      body: JSON.stringify(ToDelete)
+    })
+      .then(response => response.json())
+  }
 
   return (
     <div className='existing-software'>
@@ -34,11 +37,18 @@ export default function ViewSoftware () {
         <img className='software__magnifying-glass' src={SearchIcon} />
         <input className='software__input' type='search' placeholder='Search for existing software...' value={SearchQuery} onChange={e => SetSearchQuery(e.target.value)} />
       </div>
+      
+      <div>
+        <div>{ToDelete.length} Selected</div>
+        {ToDelete.length >= 1 ? <div onClick={DeleteSelectedSoftware(ToDelete)}>Click to delete</div> : null}
+        
+      </div>
+
 
       <div className="software__list-wrapper">
         <div className='software__list'>
           {
-            SoftwareView.map((software, index) => <Software key={index} name={software.name} version={software.version} _id={software._id} />)
+            ListOfSoftware.map((software, index) => software.name.match(SearchQuery) ? <Software key={index} name={software.name} version={software.version} _id={software._id} ToDelete={ToDelete} SetToDelete={SetToDelete} /> : null)
           }
         </div>
       </div>
