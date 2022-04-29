@@ -1,13 +1,18 @@
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom'
+import Software from './pages/software'
 
-function Index(){
-  return(
+function Index () {
+  return (
     <>
-      <h1>Welcome to React Vite Micro App!</h1>
-      <p>Hard to get more minimal than this React app.</p>
+      <Software />
     </>
-  );
+  )
 }
 
-ReactDOM.render(<Index />, document.getElementById("root"));
+ReactDOM.render(<Index />, document.getElementById('root'))
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('../service-worker.js')
+  })
+}
