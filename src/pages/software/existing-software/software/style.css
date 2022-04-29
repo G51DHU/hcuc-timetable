@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     background-color: rgb(107, 187, 233);
 
@@ -9,10 +10,12 @@
     max-width: 25%;
     height: 7rem;
     
+    border: none;
     border-radius: 15px;
     gap: 2.5%;
     box-sizing: border-box;
-    text-align: center;
+
+    cursor: pointer;
 }
 
 .software-card__name{
