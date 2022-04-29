@@ -3,9 +3,9 @@ import SearchIcon from '../../../assets/magnifying-glass.svg'
 import { useEffect, useState } from 'react'
 import Software from './software'
 
-export default function ViewSoftware () {
+export default function ExistingSoftware () {
   const [ListOfSoftware, SetListOfSoftware] = useState([])
-  const [SearchQuery, SetSearchQuery] = useState("")
+  const [SearchQuery, SetSearchQuery] = useState('')
   const [ToDelete, SetToDelete] = useState([])
 
   useEffect(() => {
@@ -14,17 +14,18 @@ export default function ViewSoftware () {
       .then(data => SetListOfSoftware(data))
   }, [])
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(ToDelete)
   }, [ToDelete])
 
-  function DeleteSelectedSoftware(ToDelete) {
-    window.fetch('http://localhost:8000/delete_software',{
-      method:"DELETE",
+  function DeleteSelectedSoftware (ToDelete) {
+    console.log(JSON.stringify(ToDelete))
+    window.fetch('http://localhost:8000/delete_software', {
+      method: 'DELETE',
       headers: {
-        'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+        'Content-type': 'application/json; charset=UTF-8' // Indicates the content
       },
-      body: JSON.stringify(ToDelete)
+      body: JSON.stringify({ software_list: ToDelete })
     })
       .then(response => response.json())
   }
@@ -37,15 +38,14 @@ export default function ViewSoftware () {
         <img className='software__magnifying-glass' src={SearchIcon} />
         <input className='software__input' type='search' placeholder='Search for existing software...' value={SearchQuery} onChange={e => SetSearchQuery(e.target.value)} />
       </div>
-      
+
       <div>
         <div>{ToDelete.length} Selected</div>
-        {ToDelete.length >= 1 ? <div onClick={DeleteSelectedSoftware(ToDelete)}>Click to delete</div> : null}
-        
+        {ToDelete.length >= 1 ? <div onClick={() => DeleteSelectedSoftware(ToDelete)}>Click to delete</div> : null}
+
       </div>
 
-
-      <div className="software__list-wrapper">
+      <div className='software__list-wrapper'>
         <div className='software__list'>
           {
             ListOfSoftware.map((software, index) => software.name.match(SearchQuery) ? <Software key={index} name={software.name} version={software.version} _id={software._id} ToDelete={ToDelete} SetToDelete={SetToDelete} /> : null)
