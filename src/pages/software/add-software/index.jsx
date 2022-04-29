@@ -22,14 +22,14 @@ export default function AddSoftware () {
 
   return (
     <form className='add-software' onSubmit={e => AddSoftwareToDB(e)}>
-      <h2 className='add-software__title'>Add software</h2>
-      <label className='add-software__name-label'>
+      <h2>Add software</h2>
+      <label>
         Name
-        <input className='add-software__name-input' type='text' placeholder='Software name...' value={SoftwareName} onChange={e => SetSoftwareName(e.target.value)} />
+        <input type='text' placeholder='Software name...' value={SoftwareName} onChange={e => SetSoftwareName(e.target.value)} />
       </label>
-      <label className='add-software__version-label'>
+      <label>
         Version
-        <input className='add-software__version-input' type='text' placeholder='Software version...' value={SoftwareVersion} onChange={e => SetSoftwareVersion(e.target.value)} />
+        <input type='text' placeholder='Software version...' value={SoftwareVersion} onChange={e => SetSoftwareVersion(e.target.value)} />
       </label>
       <input className='add-software__submit' type='submit' value='Submit' />
     </form>

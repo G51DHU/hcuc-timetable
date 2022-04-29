@@ -38,13 +38,13 @@ export default function ExistingSoftware () {
       <h2>Existing software</h2>
 
       <div className='software__search-bar'>
-        <img className='software__magnifying-glass' src={SearchIcon} />
-        <input className='software__input' type='search' placeholder='Search for existing software...' value={SearchQuery} onChange={e => SetSearchQuery(e.target.value)} />
+        <img src={SearchIcon} />
+        <input type='search' placeholder='Search for existing software...' value={SearchQuery} onChange={e => SetSearchQuery(e.target.value)} />
       </div>
 
-      <div>
-        <div>{ToDelete.length} Selected</div>
-        {ToDelete.length >= 1 ? <button className='software_click-to-delete' onClick={() => DeleteSelectedSoftware(ToDelete)}>Click to delete</button> : null}
+      <div className='software__delete'>
+        <p>{ToDelete.length} Selected</p>
+        {ToDelete.length >= 1 ? <button onClick={() => DeleteSelectedSoftware(ToDelete)}>Click to delete</button> : null}
       </div>
 
       <div className='software__list-wrapper'>

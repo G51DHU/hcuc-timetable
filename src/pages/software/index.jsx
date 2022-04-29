@@ -14,10 +14,10 @@ export default function Software () {
 
   return (
     <div className='software'>
-      <h1 className='software__title'>Software</h1>
+      <h1>Software</h1>
       <div className='software__view-and-add-switch'>
-        <button className='software__view-software-button' style={active === 'view' ? STYLE['button-active'] : null} onClick={e => setActive('view')}> View Software </button>
-        <button className='software__add-software-button' style={active === 'add' ? STYLE['button-active'] : null} onClick={e => setActive('add')}> Add software </button>
+        <button style={active === 'view' ? STYLE['button-active'] : null} onClick={e => setActive('view')}> View Software </button>
+        <button style={active === 'add' ? STYLE['button-active'] : null} onClick={e => setActive('add')}> Add software </button>
       </div>
       {
           active === 'view' ? <ExistingSoftware /> : <AddSoftware />

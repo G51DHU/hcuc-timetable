@@ -25,13 +25,13 @@
     box-sizing: border-box;
 }
 
-.software__magnifying-glass{
+.software__search-bar > img{
     padding: 1%;
     width: 15%;
     box-sizing: border-box;
 }
 
-.software__input{
+.software__search-bar > input{
     width: 100%;
     border-radius: 0 15px 15px 0px;
     border: 1px;
@@ -55,4 +55,8 @@
     width: 100%;
     row-gap: 30%;
     column-gap: 1%;
+}
+
+.software_click-to-delete{
+    cursor: pointer;
 }

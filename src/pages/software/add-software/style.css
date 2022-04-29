@@ -1,6 +1,5 @@
 .add-software,
-.add-software__name-label,
-.add-software__version-label{
+.add-software > label{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,16 +16,14 @@
 
 }
 
-.add-software__name-label,
-.add-software__version-label{
+.add-software > label{
     justify-content: center;
     width: 60%;
     height: 3.5rem;
 }
 
 
-.add-software__name-input,
-.add-software__version-input{
+.add-software > label > input{
     width: 100%;
     height: 100vh;
 }
@@ -38,9 +35,5 @@
     font-size: 100%;
     border-radius: 15px;
     color: aliceblue;
-    cursor: pointer;
-}
-
-.software_click-to-delete{
     cursor: pointer;
 }
