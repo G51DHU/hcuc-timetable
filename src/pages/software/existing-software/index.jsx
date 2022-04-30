@@ -8,10 +8,10 @@ export default function ExistingSoftware () {
   const [SearchQuery, SetSearchQuery] = useState('')
   const [ToDelete, SetToDelete] = useState([])
 
-  function GetSoftware(){
+  function GetSoftware () {
     window.fetch('http://192.168.1.211:8000/list_of_software')
-    .then(response => response.json())
-    .then(data => SetListOfSoftware(data))
+      .then(response => response.json())
+      .then(data => SetListOfSoftware(data))
   }
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function ExistingSoftware () {
       },
       body: JSON.stringify({ software_list: ToDelete })
     })
-    .then(response => response.json())
+      .then(response => response.json())
     SetToDelete([])
     GetSoftware()
   }
