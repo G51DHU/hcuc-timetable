@@ -4,8 +4,13 @@ export default function Room(room) {
     room.name
     room.software 
     return(
-        <div>
-            
-        </div>
+        <details>
+            <summary>
+                {room.name}
+            </summary>
+            <p>
+                {room.software.map((room)=><>{room}</>)}
+            </p>
+        </details>
     )
 }
