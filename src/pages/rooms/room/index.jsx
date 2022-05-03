@@ -1,15 +1,14 @@
+import { Fragment } from "react" 
 
-export default function Room(room) {
-    room._id
-    room.name
-    room.software 
+export default function Room({_id, name, software}) {
+    
     return(
         <details>
             <summary>
-                {room.name}
+                {name}
             </summary>
             <p>
-                {room.software.map((room)=><>{room}</>)}
+                {software.map((software, index)=><Fragment key={index}><br/>{software}</Fragment>)}
             </p>
         </details>
     )
