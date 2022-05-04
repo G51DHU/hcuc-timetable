@@ -1,0 +1,27 @@
+.room{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1vh;
+    width: 10%;
+    background-color: rgba(0, 148, 170, 0.55);
+    border-radius: 15px;
+    padding: 1%;
+
+}
+
+.room > summary{
+    display: flex;
+    justify-content: center;
+    text-overflow: ellipsis;
+}
+
+.room > ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(0, 148, 170, 0.55);
+    padding: 0;
+}

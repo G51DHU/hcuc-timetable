@@ -1,3 +1,4 @@
+import "./style.css"
 import { useState, useEffect } from "react"
 import Room from "./room"
 
@@ -6,7 +7,7 @@ export default function Rooms() {
     const [ListOfSoftware, SetListOfSoftware] = useState([])
 
     function GetRooms () {
-        window.fetch('http://10.52.23.208:8000/list_of_rooms')
+        window.fetch('http://192.168.1.211:8000/rooms')
           .then(response => response.json())
           .then(data => SetListOfRooms(data))
     }
@@ -15,15 +16,19 @@ export default function Rooms() {
     },[])
 
     function GetSoftware () {
-        window.fetch('http://10.52.23.208:8000/list_of_software')
+        window.fetch('http://192.168.1.211:8000/software')
           .then(response => response.json())
           .then(data => SetListOfSoftware(data))
     }
     
     return(
         <div className="rooms">
-            <img/>
-            {ListOfRooms.map((room, index)=> <Room key={index} _id={room._id} name={room.name} software={room.software_id} />)}
+            <h1>Rooms</h1>
+            <div className="rooms__row-wrapper">
+                <div className="rooms__row">
+                    {ListOfRooms.map((room, index)=> <Room key={index} _id={room._id} name={room.name} software={room.software_id} />)}
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,15 +1,13 @@
-import { Fragment } from "react" 
+import "./style.css"
 
 export default function Room({_id, name, software}) {
     
     return(
-        <details>
-            <summary>
-                {name}
-            </summary>
-            <p>
-                {software.map((software, index)=><Fragment key={index}><br/>{software}</Fragment>)}
-            </p>
+        <details className="room">
+            <summary>{name}</summary>
+            <ul>
+                {software.map((software, index)=><li key={index}>{software}{(index % 2 == 0) ? <br/> : null} </li>)}
+            </ul>
         </details>
     )
 }
