@@ -2,18 +2,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 1vh;
+    height: 100%;
     width: 10%;
-    background-color: rgba(0, 148, 170, 0.55);
+    background-color: #73C4D0;
     border-radius: 15px;
-    padding: 1%;
 
+}
+
+.room[open]{
+    border-radius: 15px 15px 0px 0px;
 }
 
 .room > summary{
     display: flex;
     justify-content: center;
+    align-items: center;
     text-overflow: ellipsis;
+    height: 100%;
+
 }
 
 .room > ul{
@@ -22,6 +28,8 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    background-color: rgba(0, 148, 170, 0.55);
+    background-color: #a6e6f0;
     padding: 0;
+    margin: 0px;
+    position: relative;
 }
