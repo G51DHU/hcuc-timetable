@@ -4,13 +4,14 @@
     align-items: center;
     height: 100vh;
     width: 100%;
+    padding: 2%;
+    box-sizing: border-box;
 }
 
 .rooms__row-wrapper{
     display: flex;
     width: 100%;
-    height: 99vh;
-    gap: 20%;
+    height: 80vh;
 }
 
 .rooms__row{
@@ -23,7 +24,20 @@
 }
 
 .rooms__add--deactivated{
-    height: 20%;
-    width: 100%;
+    position: fixed;
+    right: 9%;
+    top: 80%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     background-color: #BC48F3;
+
+    display: flex;
+    justify-content: center;
+    line-height: 100px;
+    font-size: 120px;
+    /* stop text highlight when double clicking */
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
 }

@@ -6,11 +6,15 @@
     width: 10%;
     background-color: #73C4D0;
     border-radius: 15px;
-
+    /* stop text highlight when double clicking */
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
 }
 
 .room[open]{
     border-radius: 15px 15px 0px 0px;
+    background-color: #63a9b4;
 }
 
 .room > summary{
@@ -27,9 +31,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
     background-color: #a6e6f0;
     padding: 0;
     margin: 0px;
     position: relative;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
 }

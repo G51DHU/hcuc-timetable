@@ -1,25 +1,23 @@
 import "./style.css"
 import { useState, useEffect } from "react"
 import Room from "./room"
+import AddRooms from "./add-rooms"
+
+    /* need to add delete */
 
 export default function Rooms() {
     const [ListOfRooms, SetListOfRooms] = useState([])
-    const [ListOfSoftware, SetListOfSoftware] = useState([])
-
+    const [PlusOrMinus, SetPlusOrMinus] = useState("+")
+ 
     function GetRooms () {
-        window.fetch('http://localhost:8000/rooms')
+        window.fetch('http://192.168.1.211:8000/rooms')
           .then(response => response.json())
           .then(data => SetListOfRooms(data))
     }
+    
     useEffect(()=>{
         GetRooms ()
     },[])
-
-    function GetSoftware () {
-        window.fetch('http://localhost:8000/software')
-          .then(response => response.json())
-          .then(data => SetListOfSoftware(data))
-    }
     
     return(
         <div className="rooms">
@@ -29,8 +27,8 @@ export default function Rooms() {
                     {ListOfRooms.map((room, index)=> <Room key={index} _id={room._id} name={room.name} software={room.software_id} />)}
                 </div>
             </div>
-            <div className="rooms__add--deactivated">
-            </div>
+            {PlusOrMinus === "+" ? null : <AddRooms />}
+            <div className="rooms__add--deactivated" onClick={()=>SetPlusOrMinus((PlusOrMinus === "+") ? "-" : "+")}>{PlusOrMinus}</div>
         </div>
     )
 }

@@ -1,0 +1,9 @@
+.add-rooms{
+    position: absolute;
+    top: 31%;
+    right: 13%;
+    width: 60%;
+    height: 55%;
+    border-radius: 30px;
+    background-color: #BC48F3 ;
+}
