@@ -37,7 +37,8 @@
     line-height: 100px;
     font-size: 120px;
     /* stop text highlight when double clicking */
-    -webkit-user-select: none; /* Chrome/Safari */        
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+ */
+    user-select: none;
+        -webkit-user-select: none; /* Chrome/Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+ */
 }

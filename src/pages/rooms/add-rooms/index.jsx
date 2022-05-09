@@ -1,39 +1,83 @@
-import { useState } from "react"
-import { useEffect } from "react/cjs/react.production.min"
-import "./style.css"
+import { useState, useEffect } from 'react'
+import './style.css'
 
-export default function AddRooms() {
-    const [SelectedSoftware, SetSelectedSoftware] = useState([])
-    const [ListOfSoftware, SetListOfSoftware] = useState([])
-
-
-    function GetSoftware () {
-        window.fetch('http://192.168.1.211:8000/software')
-          .then(response => response.json())
-          .then(data => SetListOfSoftware(data))
+export default function AddRooms () {
+  const STYLE = {
+    'add-rooms__software--added': {
+      backgroundColor: 'lightblue'
     }
+  }
+  const [ListOfSoftware, SetListOfSoftware] = useState([])
+  const [SelectedSoftware, SetSelectedSoftware] = useState([])
+  const [RoomName, SetRoomName] = useState([])
+
+  function GetSoftware () {
+    window.fetch('http://192.168.1.211:8000/software')
+      .then(response => response.json())
+      .then(data => SetListOfSoftware(data))
+  }
+
+  // Leave "GetSoftware()" in "useState", or you'll get a memory leak.
+  useEffect(() => {
     GetSoftware()
+  }, [])
 
-    return(
-        <div className="add-rooms">
-            <h2>Add room</h2>
+  useEffect(() => {
+    console.log(SelectedSoftware)
+  }, [SelectedSoftware])
 
-            <label>
-                Name
-                <input type="text" />
-            </label>
+  function OnSoftwareClick (index) {
+    SelectedSoftware.includes(index) ? SetSelectedSoftware(SelectedSoftware.filter((s) => { return s !== index })) : SetSelectedSoftware([...SelectedSoftware, index])
+  }
 
-            <div>
-                <label>
-                    Name
-                    <select name="software" onChange={(e)=>SetSelectedSoftware(e.target.value)}>
-                        {ListOfSoftware.map((software, index)=><option key={index} value={software._id}>{software.name} - {software.version} </option>)}
-                    </select>
-                </label>
-                <div className="add-rooms__existing-software">
-                    {SelectedSoftware.map((sofware)=><div>{sofware}</div>)}
-                </div>
-            </div>
-        </div>
-    )
+  function AddRoom (e) {
+    e.preventDefault()
+    window.fetch('http://192.168.1.211:8000/rooms', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: RoomName,
+        software: SelectedSoftware.map((value) => ListOfSoftware[value])
+      })
+    })
+  }
+
+  return (
+    <form className='add-rooms' onSubmit={(e) => AddRoom(e)}>
+      <h2>Add room</h2>
+      <div className='add-rooms__inner-wrapper'>
+        <label>
+          Name
+          <input type='text' onChange={(e) => SetRoomName(e.target.value)} />
+        </label>
+        <label>
+          Select Software
+          <table>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <th>Version</th>
+              </tr>
+              {
+                ListOfSoftware.length === 0 ? null : ListOfSoftware.map((software, index) =>
+                (
+                  <tr
+                    key={index}
+                    style={SelectedSoftware.includes(index) ? STYLE['add-rooms__software--added'] : null}
+                    onClick={() => OnSoftwareClick(index)}
+                  >
+                    <td>{software.name}</td>
+                    <td>{software.version}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </label>
+      </div>
+      <input type='submit' />
+    </form>
+  )
 }
