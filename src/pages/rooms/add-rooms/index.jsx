@@ -22,10 +22,6 @@ export default function AddRooms () {
     GetSoftware()
   }, [])
 
-  useEffect(() => {
-    console.log(SelectedSoftware)
-  }, [SelectedSoftware])
-
   function OnSoftwareClick (index) {
     SelectedSoftware.includes(index) ? SetSelectedSoftware(SelectedSoftware.filter((s) => { return s !== index })) : SetSelectedSoftware([...SelectedSoftware, index])
   }
