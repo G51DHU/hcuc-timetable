@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './style.css'
 
-export default function AddRooms () {
+export default function AddRooms ({ReloadRooms}) {
   const STYLE = {
     'add-rooms__software--added': {
       backgroundColor: 'lightblue'
@@ -38,6 +38,7 @@ export default function AddRooms () {
         software: SelectedSoftware.map((value) => ListOfSoftware[value])
       })
     })
+    ReloadRooms()
   }
 
   return (
