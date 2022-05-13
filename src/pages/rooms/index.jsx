@@ -42,7 +42,7 @@ export default function Rooms () {
       </div>
       <div className='rooms__row-wrapper'>
         <div className='rooms__row'>
-          {ListOfRooms.length === 0 ? null :  ListOfRooms.map((room, index) => <Room key={index} _id={room._id} name={room.name} software={room.software} ToDelete={ToDelete} SetToDelete={SetToDelete} />)}
+          {ListOfRooms.length === 0 ? null : ListOfRooms.map((room, index) => <Room key={index} _id={room._id} name={room.name} software={room.software} ToDelete={ToDelete} SetToDelete={SetToDelete} />)}
         </div>
       </div>
       {PlusOrMinus === '+' ? null : <AddRooms ReloadRooms={GetRooms} />}

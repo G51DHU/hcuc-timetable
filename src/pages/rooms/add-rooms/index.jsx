@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './style.css'
 
-export default function AddRooms ({ReloadRooms}) {
+export default function AddRooms ({ ReloadRooms }) {
   const STYLE = {
     'add-rooms__software--added': {
       backgroundColor: 'lightblue'
@@ -58,17 +58,19 @@ export default function AddRooms ({ReloadRooms}) {
                 <th>Version</th>
               </tr>
               {
-                ListOfSoftware.length === 0 ? null : ListOfSoftware.map((software, index) =>
-                (
-                  <tr
-                    key={index}
-                    style={SelectedSoftware.includes(index) ? STYLE['add-rooms__software--added'] : null}
-                    onClick={() => OnSoftwareClick(index)}
-                  >
-                    <td>{software.name}</td>
-                    <td>{software.version}</td>
-                  </tr>
-                ))
+                ListOfSoftware.length === 0
+                  ? null
+                  : ListOfSoftware.map((software, index) =>
+                    (
+                      <tr
+                        key={index}
+                        style={SelectedSoftware.includes(index) ? STYLE['add-rooms__software--added'] : null}
+                        onClick={() => OnSoftwareClick(index)}
+                      >
+                        <td>{software.name}</td>
+                        <td>{software.version}</td>
+                      </tr>
+                    ))
               }
             </tbody>
           </table>
