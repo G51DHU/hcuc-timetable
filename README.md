@@ -30,8 +30,16 @@ This application is to help teachers of HCUC to manage student timetables easily
 
   ```
 
----
+>## **Download, Install, Run**
 
+### Download
+1) Open terminal / Powershell
+2) Copy, paste and run the following line:
+  ` git clone https://github.com/g51dhu/hcuc-timetable`
+
+### Install & Run
+3) Copy, paste and run the following line:
+  ` cd hcuc-timetable ; npm i ; npm start`
 
 > ## **Commands**
 
