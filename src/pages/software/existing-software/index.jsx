@@ -4,33 +4,31 @@ import { useEffect, useState } from 'react'
 import Software from './software'
 
 export default function ExistingSoftware () {
-  function GetSoftware(){
-    window.fetch('http://10.52.23.208:8000/list_of_software')
-    .then(response => response.json())
-    .then(data => SetListOfSoftware(data))
-  }
-
-  const [ListOfSoftware, SetListOfSoftware] = useState(GetSoftware())
+  const [ListOfSoftware, SetListOfSoftware] = useState([])
   const [SearchQuery, SetSearchQuery] = useState('')
   const [ToDelete, SetToDelete] = useState([])
 
-
+  function GetSoftware () {
+    window.fetch('http://192.168.1.211:8000/software')
+      .then(response => response.json())
+      .then(data => SetListOfSoftware(data))
+  }
 
   useEffect(() => {
     GetSoftware()
-  }, [ToDelete, SearchQuery])
+  }, [SearchQuery])
 
   function DeleteSelectedSoftware (ToDelete) {
-    console.log(JSON.stringify(ToDelete))
-    window.fetch('http://10.52.23.208:8000/delete_software', {
+    window.fetch('http://192.168.1.211:8000/software', {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json; charset=UTF-8' // Indicates the content
       },
       body: JSON.stringify({ software_list: ToDelete })
     })
-    .then(response => response.json())
+      .then(response => response.json())
     SetToDelete([])
+    GetSoftware()
   }
 
   return (

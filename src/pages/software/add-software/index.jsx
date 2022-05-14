@@ -6,7 +6,7 @@ export default function AddSoftware () {
   const [SoftwareVersion, SetSoftwareVersion] = useState('')
   function AddSoftwareToDB (e) {
     e.preventDefault()
-    window.fetch('http://10.52.23.208:8000/add_software', {
+    window.fetch('http://192.168.1.211:8000/software', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
