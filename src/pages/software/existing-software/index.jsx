@@ -9,7 +9,7 @@ export default function ExistingSoftware () {
   const [ToDelete, SetToDelete] = useState([])
 
   function GetSoftware () {
-    window.fetch('http://192.168.1.211:8000/list_of_software')
+    window.fetch('http://192.168.1.211:8000/software')
       .then(response => response.json())
       .then(data => SetListOfSoftware(data))
   }
@@ -19,7 +19,7 @@ export default function ExistingSoftware () {
   }, [SearchQuery])
 
   function DeleteSelectedSoftware (ToDelete) {
-    window.fetch('http://192.168.1.211:8000/delete_software', {
+    window.fetch('http://192.168.1.211:8000/software', {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json; charset=UTF-8' // Indicates the content
