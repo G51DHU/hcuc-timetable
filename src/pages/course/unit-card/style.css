@@ -1,0 +1,73 @@
+.unit-card{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: #7FDCEA;
+    width: 25%;
+    border-radius: 30px;
+    border: none;
+    padding: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 130%;
+    gap: 0.4rem;
+}
+
+
+.unit-card > h4,
+.unit-card > p{
+    margin: 0px;
+}
+
+.unit-card > p{
+    font-size: 85%;
+}
+
+.unit-card__teacher,
+.unit-card__hours-scheduled{
+    display: flex;
+    align-items: center;
+}
+
+.unit-card__teacher > img,
+.unit-card__hours-scheduled > img{
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+}
+
+.unit-card__teacher > p,
+.unit-card__hours-scheduled > p{
+    margin: 0px;
+    font-size: 80%;
+}
+
+.unit-card__software{
+    display: flex;
+    font-size: 80%;
+}
+
+.unit-card__software > p{
+    margin: 0px;
+}
+
+.unit-card__click-to-expand{
+    color: #383838;
+}
+
+@media screen and (max-device-width:480px){
+    .unit-card{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        background-color: #7FDCEA;
+        width: 100%;
+        border-radius: 30px;
+        border: none;
+        padding: 5%;
+        padding-left: 10%;
+        padding-right: 10%;
+        font-size: 130%;
+        gap: 0.4rem;
+    }
+}
