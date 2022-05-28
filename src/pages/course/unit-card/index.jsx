@@ -3,9 +3,10 @@ import IMGuserAvatar from "../../../assets/user.png"
 import IMGclock from "../../../assets/clock.svg"
 
 
-export default function UnitCard({_id, name, code, teacher, scheduled_hours, software}) {
+export default function UnitCard({pop_up, index, name, code, teacher, scheduled_hours}) {
+
     return(
-        <button className="unit-card">
+        <button className="unit-card"  onSubmit={pop_up(index)}>
             <h4>{name}</h4>
             <p>{code}</p>
             <div className="unit-card__teacher">
