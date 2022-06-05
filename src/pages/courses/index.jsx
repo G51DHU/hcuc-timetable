@@ -11,13 +11,13 @@ export default function Courses () {
   const [SearchQuery, SetSearchQuery] = useState('')
 
   function GetCourses () {
-    window.fetch('http://192.168.1.211:8000/courses')
+    window.fetch('http://localhost:8000/courses')
       .then(response => response.json())
       .then(data => SetListOfCourses(data))
   }
 
   function DeleteSelectedCourses (ToDelete) {
-    window.fetch('http://192.168.1.211:8000/courses', {
+    window.fetch('http://localhost:8000/courses', {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json'

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
 import './style.css'
+import { useState, useEffect } from 'react'
 
-export default function AddCourses ({ ReloadRooms }) {
+export default function AddCourses ({ ReloadCourses }) {
   const STYLE = {
     'add-rooms__software--added': {
       backgroundColor: 'lightblue'
@@ -12,7 +12,7 @@ export default function AddCourses ({ ReloadRooms }) {
   const [RoomName, SetRoomName] = useState([])
 
   function GetSoftware () {
-    window.fetch('http://192.168.1.211:8000/software')
+    window.fetch('http://localhost:8000/software')
       .then(response => response.json())
       .then(data => SetListOfSoftware(data))
   }
@@ -28,7 +28,7 @@ export default function AddCourses ({ ReloadRooms }) {
 
   function AddRoom (e) {
     e.preventDefault()
-    window.fetch('http://192.168.1.211:8000/rooms', {
+    window.fetch('http://localhost:8000/rooms', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ export default function AddCourses ({ ReloadRooms }) {
         software: SelectedSoftware.map((value) => ListOfSoftware[value])
       })
     })
-    ReloadRooms()
+    ReloadCourses()
   }
 
   return (

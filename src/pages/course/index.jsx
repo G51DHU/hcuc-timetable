@@ -25,7 +25,7 @@ export default function Course() {
         <div className='course__inner-wrapper'>
           <div className='course__row-wrapper'>
             <div className='course__row'>
-              {(ListOfUnits.length === 0) ? null : ListOfUnits.map((unit, index) => <UnitCard key={index} pop_up={PopUp} index={index} name={unit.name} code={unit.code} teacher={unit.teacher} scheduled_hours={unit.timetabledHours} /> )}
+              {(ListOfUnits.length === 0) ? null : ListOfUnits.map((unit, index) => <UnitCard key={index} PopUp={PopUp} index={index} name={unit.name} code={unit.code} teacher={unit.teacher} scheduled_hours={unit.timetabledHours} /> )}
             </div>
           </div>
         </div>
