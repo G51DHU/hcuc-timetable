@@ -1,3 +1,56 @@
 .unit-pop-up{
-    background-color: #4A7980;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 20%;
+    align-self: center;
+
+    height: 33%;
+    width: 30%;
+    border-radius: 15px;
+    padding: 1%;
+    background-color: #60a7b3;
+    border: solid 1px black
+}
+
+.unit-pop-up > h4,
+.unit-pop-up > p{
+    margin: 0px;
+}
+
+.unit-pop-up > p{
+    font-size: 85%;
+}
+
+.unit-pop-up__teacher,
+.unit-pop-up__hours-scheduled{
+    display: flex;
+    align-items: center;
+}
+
+.unit-pop-up__teacher > img,
+.unit-pop-up__hours-scheduled > img{
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+}
+
+.unit-pop-up__teacher > p,
+.unit-pop-up__hours-scheduled > p{
+    margin: 0px;
+    font-size: 80%;
+}
+
+.unit-pop-up__software{
+    display: flex;
+    flex-direction: column;
+    font-size: 80%;
+}
+
+.unit-pop-up__software > p{
+    margin: 0px;
+}
+
+.unit-pop-up__software > div{
+    margin-left: 8%;
 }

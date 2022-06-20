@@ -29,7 +29,7 @@ export default function Course() {
             </div>
           </div>
         </div>
-        {(IsPopUpActive === false) ? null : <UnitPopUp unit={ListOfUnits[ActiveUnit]} />} 
+        {(IsPopUpActive === false) ? null : <UnitPopUp {...ListOfUnits[ActiveUnit]} />} 
         <div className='course__add--deactivated' onClick={() => SetPlusOrMinus((PlusOrMinus === '+') ? '-' : '+')}>{PlusOrMinus}</div>
       </div>
     )
