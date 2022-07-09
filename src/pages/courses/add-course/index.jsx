@@ -26,9 +26,9 @@ export default function AddCourses ({ ReloadCourses }) {
     SelectedSoftware.includes(index) ? SetSelectedSoftware(SelectedSoftware.filter((s) => { return s !== index })) : SetSelectedSoftware([...SelectedSoftware, index])
   }
 
-  function AddRoom (e) {
+  function AddCourse (e) {
     e.preventDefault()
-    window.fetch('http://localhost:8000/rooms', {
+    window.fetch('http://localhost:8000/courses', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -42,39 +42,65 @@ export default function AddCourses ({ ReloadCourses }) {
   }
 
   return (
-    <form className='add-rooms' onSubmit={(e) => AddRoom(e)}>
-      <h2>Add room</h2>
-      <div className='add-rooms__inner-wrapper'>
-        <label>
-          Name
-          <input type='text' onChange={(e) => SetRoomName(e.target.value)} />
-        </label>
-        <label>
-          Select Software
-          <table>
-            <tbody>
-              <tr>
-                <th>Name</th>
-                <th>Version</th>
-              </tr>
-              {
-                ListOfSoftware.length === 0
-                  ? null
-                  : ListOfSoftware.map((software, index) =>
-                    (
-                      <tr
-                        key={index}
-                        style={SelectedSoftware.includes(index) ? STYLE['add-rooms__software--added'] : null}
-                        onClick={() => OnSoftwareClick(index)}
-                      >
-                        <td>{software.name}</td>
-                        <td>{software.version}</td>
-                      </tr>
-                    ))
-              }
-            </tbody>
-          </table>
-        </label>
+    <form className='add-course' onSubmit={(e) => AddCourse(e)}>
+      <h2>Add Course</h2>
+      <div className='add-course__inner-wrapper'>
+        <div className='add-course__forum'>
+          <label>
+            Name
+            <input type='text' onChange={(e) => SetRoomName(e.target.value)} />
+          </label>
+          <label>
+            Add unit:
+            <div>
+              <label>
+                Name
+                <input type='text' onChange={(e) => SetRoomName(e.target.value)} />
+              </label>
+              <label>
+                Code
+                <input type='text' onChange={(e) => SetRoomName(e.target.value)} />
+              </label>
+              <label>
+                Teacher
+                <input type='text' onChange={(e) => SetRoomName(e.target.value)} />
+              </label>
+              <label>
+                Scheduled Hours
+                <input type='text' onChange={(e) => SetRoomName(e.target.value)} />
+              </label>
+            </div>
+          </label>
+          <label>
+            Select Software
+            <table>
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Version</th>
+                </tr>
+                {
+                  ListOfSoftware.length === 0
+                    ? null
+                    : ListOfSoftware.map((software, index) =>
+                      (
+                        <tr
+                          key={index}
+                          style={SelectedSoftware.includes(index) ? STYLE['add-rooms__software--added'] : null}
+                          onClick={() => OnSoftwareClick(index)}
+                        >
+                          <td>{software.name}</td>
+                          <td>{software.version}</td>
+                        </tr>
+                      ))
+                }
+              </tbody>
+            </table>
+          </label>
+        </div>
+        <div className='add-course__added-units'>
+          <h3>Added units:</h3>
+        </div>
       </div>
       <input type='submit' />
     </form>
